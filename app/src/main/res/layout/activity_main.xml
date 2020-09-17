@@ -72,8 +72,29 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:maxLines="5"
         app:layout_constraintEnd_toEndOf="@+id/btnRemoveCity"
         app:layout_constraintStart_toStartOf="@+id/editCityToAdd"
         app:layout_constraintTop_toBottomOf="@+id/editCityToAdd"
+        tools:text="@tools:sample/cities" />
+
+    <Button
+        android:id="@+id/btnRequestLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Request location"
+        app:layout_constraintEnd_toEndOf="@+id/txtCityOutput"
+        app:layout_constraintStart_toStartOf="@+id/txtCityOutput"
+        app:layout_constraintTop_toBottomOf="@+id/txtCityOutput" />
+
+    <TextView
+        android:id="@+id/txtUserLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnRequestLocation"
+        app:layout_constraintStart_toStartOf="@+id/btnRequestLocation"
+        app:layout_constraintTop_toBottomOf="@+id/btnRequestLocation"
         tools:text="@tools:sample/cities" />
 </androidx.constraintlayout.widget.ConstraintLayout>

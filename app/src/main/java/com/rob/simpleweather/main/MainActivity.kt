@@ -5,14 +5,19 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import com.rob.simpleweather.databinding.ActivityMainBinding
 import com.rob.simpleweather.favorites.FavoritesViewModel
+import com.rob.simpleweather.geolocation.UserLocationProvider
 import com.rob.simpleweather.repository.CitySearchViewModel
 import com.rob.simpleweather.repository.ForecastViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var userLocationProvider: UserLocationProvider
 
     private val forecastViewModel by viewModels<ForecastViewModel>()
     private val searchViewModel by viewModels<CitySearchViewModel>()
@@ -47,5 +52,18 @@ class MainActivity : AppCompatActivity() {
         binding.btnRemoveCity.setOnClickListener {
             favoritesViewModel.markCityAsFavorite(binding.editCityToAdd.text.toString(), false)
         }
+
+        binding.btnRequestLocation.isEnabled = userLocationProvider.canRequestLocation()
+
+        userLocationProvider.userLocation.observe(this) { city ->
+            if (city != null) {
+                binding.txtUserLocation.text = "Last user location: $city"
+            }
+        }
+
+        binding.btnRequestLocation.setOnClickListener {
+            userLocationProvider.requestUserLocation()
+        }
+
     }
 }

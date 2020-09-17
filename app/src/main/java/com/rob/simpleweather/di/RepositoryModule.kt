@@ -1,6 +1,9 @@
 package com.rob.simpleweather.di
 
 import android.app.Application
+import androidx.datastore.DataStore
+import androidx.datastore.preferences.Preferences
+import androidx.datastore.preferences.createDataStore
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.rob.simpleweather.repository.ForecastDao
@@ -13,7 +16,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonConfiguration
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -59,4 +61,8 @@ object RepositoryModule {
     @Provides
     fun provideForecastDao(context: Application): ForecastDao =
         ForecastDatabase.buildInMemoryDb(context).dao()
+
+    @Provides
+    fun provideFavoriteStorage(context: Application): DataStore<Preferences> =
+        context.createDataStore(name = "favorites")
 }

@@ -8,11 +8,72 @@
 
     <Button
         android:id="@+id/btnForecastRequest"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:text="Forecast"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCitySearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Search"
+        app:layout_constraintEnd_toEndOf="@+id/btnForecastRequest"
+        app:layout_constraintStart_toStartOf="@+id/btnForecastRequest"
+        app:layout_constraintTop_toBottomOf="@+id/btnForecastRequest" />
+
+    <EditText
+        android:id="@+id/editCityToAdd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="City"
+        app:layout_constraintEnd_toStartOf="@+id/btnAddCity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCitySearch" />
+
+    <Button
+        android:id="@+id/btnAddCity"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:text="+"
+        app:layout_constraintEnd_toStartOf="@+id/btnRemoveCity"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editCityToAdd"
+        app:layout_constraintTop_toTopOf="@+id/editCityToAdd" />
+
+    <Button
+        android:id="@+id/btnRemoveCity"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnAddCity"
+        app:layout_constraintTop_toTopOf="@+id/btnAddCity" />
+
+    <TextView
+        android:id="@+id/txtCityOutput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnRemoveCity"
+        app:layout_constraintStart_toStartOf="@+id/editCityToAdd"
+        app:layout_constraintTop_toBottomOf="@+id/editCityToAdd"
+        tools:text="@tools:sample/cities" />
 </androidx.constraintlayout.widget.ConstraintLayout>

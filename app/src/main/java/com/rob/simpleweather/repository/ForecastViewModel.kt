@@ -1,4 +1,4 @@
-package com.rob.simpleweather.main
+package com.rob.simpleweather.repository
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData

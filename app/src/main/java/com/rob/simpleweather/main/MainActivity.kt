@@ -8,6 +8,7 @@ import com.rob.simpleweather.favorites.FavoritesViewModel
 import com.rob.simpleweather.geolocation.UserLocationProvider
 import com.rob.simpleweather.repository.CitySearchViewModel
 import com.rob.simpleweather.repository.ForecastViewModel
+import com.rob.simpleweather.scheduled.WeatherUpdater
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
@@ -18,6 +19,9 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var userLocationProvider: UserLocationProvider
+
+    @Inject
+    lateinit var weatherUpdater: WeatherUpdater
 
     private val forecastViewModel by viewModels<ForecastViewModel>()
     private val searchViewModel by viewModels<CitySearchViewModel>()
@@ -65,5 +69,8 @@ class MainActivity : AppCompatActivity() {
             userLocationProvider.requestUserLocation()
         }
 
+        binding.btnScheduleUpdate.setOnClickListener {
+            weatherUpdater.scheduleRecurringUpdate()
+        }
     }
 }

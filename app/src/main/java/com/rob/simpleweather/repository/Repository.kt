@@ -11,24 +11,27 @@ class Repository @Inject constructor(
     private val forecastDao: ForecastDao
 ) {
 
-    suspend fun fetchWeatherForCity(city: String) : ForecastResponse {
+    suspend fun getWeatherForCity(city: String) : ForecastResponse {
         val dbResult = forecastDao.findByCity(city)
-        val threshold = LocalDateTime.now().minusSeconds(90)
+        val threshold = LocalDateTime.now().minusHours(1)
 
         return if (dbResult == null || dbResult.timestamp.isBefore(threshold)) {
             Timber.i("Returning result from network")
-            weatherApi.fetchForecastFor(city).apply {
-                val table = ForecastTable(
-                    city = city,
-                    forecastResponse = this
-                )
-                Timber.i("Saving result to database")
-                forecastDao.updateCityWeather(table)
-            }
+            fetchWeatherForCity(city)
         } else {
             Timber.i("Returning result from DB")
             dbResult.forecastResponse
         }
     }
+
+    suspend fun fetchWeatherForCity(city: String) : ForecastResponse =
+        weatherApi.fetchForecastFor(city).apply {
+            val table = ForecastTable(
+                city = city,
+                forecastResponse = this
+            )
+            Timber.i("Saving result to database")
+            forecastDao.updateCityWeather(table)
+        }
 
 }

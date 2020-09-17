@@ -5,10 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rob.simpleweather.model.Forecast
 import com.rob.simpleweather.model.ForecastResponse
 import com.rob.simpleweather.model.Lce
-import com.rob.simpleweather.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -26,7 +24,7 @@ class ForecastViewModel @ViewModelInject constructor(private val repository: Rep
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val result = repository.fetchWeatherForCity(city)
+                val result = repository.getWeatherForCity(city)
                 _forecast.postValue(Lce.Success(result))
             } catch(e: Exception) {
                 Timber.e(e)

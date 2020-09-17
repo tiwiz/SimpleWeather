@@ -1,0 +1,35 @@
+package com.rob.simpleweather.main
+
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.rob.simpleweather.model.Forecast
+import com.rob.simpleweather.model.ForecastResponse
+import com.rob.simpleweather.model.Lce
+import com.rob.simpleweather.repository.Repository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+
+class ForecastViewModel @ViewModelInject constructor(private val repository: Repository) :
+    ViewModel() {
+
+    private val _forecast = MutableLiveData<Lce<ForecastResponse>>()
+
+    val forecast: LiveData<Lce<ForecastResponse>>
+        get() = _forecast
+
+    fun requestForecastFor(city: String) {
+        _forecast.postValue(Lce.Loading)
+
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val result = repository.fetchWeatherForCity(city)
+                _forecast.postValue(Lce.Success(result))
+            } catch(e: Exception) {
+                _forecast.postValue(Lce.Error(e))
+            }
+        }
+    }
+}

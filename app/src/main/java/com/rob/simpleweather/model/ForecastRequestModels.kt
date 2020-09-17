@@ -25,25 +25,25 @@ data class Location (
 data class Current (
     val last_updated_epoch : Int,
     val last_updated : String,
-    val temp_c : Int,
+    val temp_c : Double,
     val temp_f : Double,
     val is_day : Int,
     val condition : Condition,
-    val wind_mph : Int,
-    val wind_kph : Int,
-    val wind_degree : Int,
+    val wind_mph : Double,
+    val wind_kph : Double,
+    val wind_degree : Double,
     val wind_dir : String,
-    val pressure_mb : Int,
+    val pressure_mb : Double,
     val pressure_in : Double,
-    val precip_mm : Int,
-    val precip_in : Int,
+    val precip_mm : Double,
+    val precip_in : Double,
     val humidity : Int,
     val cloud : Int,
     val feelslike_c : Double,
     val feelslike_f : Double,
-    val vis_km : Int,
-    val vis_miles : Int,
-    val uv : Int,
+    val vis_km : Double,
+    val vis_miles : Double,
+    val uv : Double,
     val gust_mph : Double,
     val gust_kph : Double
 )
@@ -57,7 +57,7 @@ data class Condition (
 
 @Serializable
 data class Forecast (
-    val forecastDay : List<ForecastDay>
+    val forecastday : List<ForecastDay>
 )
 
 @Serializable
@@ -76,19 +76,19 @@ data class Day (
     val mintemp_f : Double,
     val avgtemp_c : Double,
     val avgtemp_f : Double,
-    val maxwind_mph : Int,
+    val maxwind_mph : Double,
     val maxwind_kph : Double,
-    val totalprecip_mm : Int,
-    val totalprecip_in : Int,
-    val avgvis_km : Int,
-    val avgvis_miles : Int,
-    val avghumidity : Int,
+    val totalprecip_mm : Double,
+    val totalprecip_in : Double,
+    val avgvis_km : Double,
+    val avgvis_miles : Double,
+    val avghumidity : Double,
     val daily_will_it_rain : Int,
     val daily_chance_of_rain : Int,
     val daily_will_it_snow : Int,
     val daily_chance_of_snow : Int,
     val condition : Condition,
-    val uv : Int
+    val uv : Double
 )
 
 @Serializable

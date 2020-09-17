@@ -11,6 +11,7 @@ import com.rob.simpleweather.model.Lce
 import com.rob.simpleweather.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class ForecastViewModel @ViewModelInject constructor(private val repository: Repository) :
     ViewModel() {
@@ -28,6 +29,7 @@ class ForecastViewModel @ViewModelInject constructor(private val repository: Rep
                 val result = repository.fetchWeatherForCity(city)
                 _forecast.postValue(Lce.Success(result))
             } catch(e: Exception) {
+                Timber.e(e)
                 _forecast.postValue(Lce.Error(e))
             }
         }

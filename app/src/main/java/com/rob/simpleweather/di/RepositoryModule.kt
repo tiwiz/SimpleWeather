@@ -3,6 +3,8 @@ package com.rob.simpleweather.di
 import android.app.Application
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.rob.simpleweather.repository.ForecastDao
+import com.rob.simpleweather.repository.ForecastDatabase
 import com.rob.simpleweather.repository.WeatherApi
 import com.rob.simpleweather.repository.WeatherApiKeyInterceptor
 import dagger.Module
@@ -21,7 +23,7 @@ import retrofit2.Retrofit
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+object RepositoryModule {
 
     @Provides
     fun provideHttpClient(context: Application): OkHttpClient =
@@ -53,4 +55,8 @@ object NetworkModule {
             .addConverterFactory(factory)
             .build()
             .create(WeatherApi::class.java)
+
+    @Provides
+    fun provideForecastDao(context: Application): ForecastDao =
+        ForecastDatabase.buildInMemoryDb(context).dao()
 }

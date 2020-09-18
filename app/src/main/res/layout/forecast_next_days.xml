@@ -31,12 +31,10 @@
 
     <ImageView
         android:id="@+id/iconForecastWeather"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -45,12 +43,14 @@
         android:id="@+id/txtForecastWeatherType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtAvgTemp"
-        app:layout_constraintEnd_toStartOf="@+id/iconForecastWeather"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/iconForecastWeather"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/txtAvgTemp"
-        app:layout_constraintTop_toTopOf="@+id/txtAvgTemp"
+        app:layout_constraintTop_toBottomOf="@+id/iconForecastWeather"
         tools:text="@tools:sample/lorem" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

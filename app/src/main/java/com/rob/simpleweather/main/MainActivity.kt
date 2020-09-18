@@ -3,7 +3,9 @@ package com.rob.simpleweather.main
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager.VERTICAL
 import coil.load
 import com.rob.simpleweather.databinding.ActivityMainBinding
 import com.rob.simpleweather.favorites.FavoritesViewModel
@@ -51,6 +53,7 @@ class MainActivity : AppCompatActivity(), OnFavoriteClicked {
 
         with(binding.listForecast) {
             layoutManager = LinearLayoutManager(this@MainActivity)
+            addItemDecoration(DividerItemDecoration(this@MainActivity, VERTICAL))
             adapter = forecastAdapter
         }
 
@@ -66,6 +69,17 @@ class MainActivity : AppCompatActivity(), OnFavoriteClicked {
             )
 
             adapter = favoritesAdapter
+        }
+
+        binding.btnRefresh.setOnClickListener {
+            forecastViewModel.requestForecastFor(
+                city = binding.txtCity.text.toString(),
+                forceFetch = true
+            )
+        }
+
+        binding.btnUserLocation.setOnClickListener {
+            loadWeatherFromUserLocation()
         }
     }
 
@@ -97,7 +111,7 @@ class MainActivity : AppCompatActivity(), OnFavoriteClicked {
     }
 
     private fun loadFavorites() {
-        favoritesViewModel.favorites.observe(this) {favorites ->
+        favoritesViewModel.favorites.observe(this) { favorites ->
             favorites.doOnData { cities ->
                 favoritesAdapter.updateFavorites(cities)
             }

@@ -1,121 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".main.MainActivity">
 
-
-    <TextView
-        android:id="@+id/txtCity"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@tools:sample/cities" />
+        tools:context=".main.MainActivity">
 
-    <TextView
-        android:id="@+id/txtCountry"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintEnd_toEndOf="@+id/txtCity"
-        app:layout_constraintStart_toStartOf="@+id/txtCity"
-        app:layout_constraintTop_toBottomOf="@+id/txtCity"
-        tools:text="@tools:sample/us_zipcodes" />
+        <TextView
+            android:id="@+id/txtCity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/cities" />
 
-    <ImageView
-        android:id="@+id/iconWeather"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/weather_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCountry"
-        tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:id="@+id/txtCountry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintEnd_toEndOf="@+id/txtCity"
+            app:layout_constraintStart_toStartOf="@+id/txtCity"
+            app:layout_constraintTop_toBottomOf="@+id/txtCity"
+            tools:text="@tools:sample/us_zipcodes" />
 
-    <TextView
-        android:id="@+id/txtTemperature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="@+id/iconWeather"
-        app:layout_constraintStart_toStartOf="@+id/iconWeather"
-        app:layout_constraintTop_toBottomOf="@+id/txtWeatherType"
-        tools:text="20° C" />
+        <ImageView
+            android:id="@+id/iconWeather"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/weather_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCountry"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/txtWeatherType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/iconWeather"
-        app:layout_constraintStart_toStartOf="@+id/iconWeather"
-        app:layout_constraintTop_toBottomOf="@+id/iconWeather"
-        tools:text="@tools:sample/lorem" />
+        <TextView
+            android:id="@+id/txtTemperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="@+id/iconWeather"
+            app:layout_constraintStart_toStartOf="@+id/iconWeather"
+            app:layout_constraintTop_toBottomOf="@+id/txtWeatherType"
+            tools:text="20° C" />
 
-    <TextView
-        android:id="@+id/txtNextDays"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/next_3_days"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTemperature" />
+        <TextView
+            android:id="@+id/txtWeatherType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/iconWeather"
+            app:layout_constraintStart_toStartOf="@+id/iconWeather"
+            app:layout_constraintTop_toBottomOf="@+id/iconWeather"
+            tools:text="@tools:sample/lorem" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listForecast"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNextDays"
-        tools:itemCount="3"
-        tools:listitem="@layout/forecast_next_days" />
+        <TextView
+            android:id="@+id/txtNextDays"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/next_3_days"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTemperature" />
 
-    <TextView
-        android:id="@+id/txtFavoritesLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/favorites_label"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listForecast" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listForecast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNextDays"
+            tools:itemCount="3"
+            tools:listitem="@layout/forecast_next_days" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listFavorite"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="96dp"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFavoritesLabel"
-        app:layout_constraintVertical_bias="0.0"
-        tools:itemCount="3"
-        tools:listitem="@layout/favorite_element" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtFavoritesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/favorites_label"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listForecast" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listFavorite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtFavoritesLabel"
+            tools:itemCount="3"
+            tools:listitem="@layout/favorite_element" />
+
+        <ImageButton
+            android:id="@+id/btnRefresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="16dp"
+            android:background="?selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnUserLocation"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/listFavorite"
+            app:srcCompat="@drawable/ic_refresh" />
+
+        <ImageButton
+            android:id="@+id/btnUserLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/btnRefresh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnRefresh"
+            app:layout_constraintTop_toTopOf="@+id/btnRefresh"
+            app:srcCompat="@drawable/ic_my_location" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

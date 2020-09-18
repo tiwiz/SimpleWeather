@@ -19,12 +19,12 @@ class ForecastViewModel @ViewModelInject constructor(private val repository: Rep
     val forecast: LiveData<Lce<ForecastResponse>>
         get() = _forecast
 
-    fun requestForecastFor(city: String) {
+    fun requestForecastFor(city: String, forceFetch: Boolean = false) {
         _forecast.postValue(Lce.Loading)
 
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val result = repository.getWeatherForCity(city)
+                val result = repository.getOrFetch(city, forceFetch)
                 _forecast.postValue(Lce.Success(result))
             } catch(e: Exception) {
                 Timber.e(e)

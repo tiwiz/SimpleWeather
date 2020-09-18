@@ -34,4 +34,10 @@ class Repository @Inject constructor(
             forecastDao.updateCityWeather(table)
         }
 
+    suspend fun getOrFetch(city: String, forceFetch: Boolean) : ForecastResponse =
+        if (forceFetch) {
+            fetchWeatherForCity(city)
+        } else {
+            getWeatherForCity(city)
+        }
 }

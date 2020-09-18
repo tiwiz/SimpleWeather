@@ -60,7 +60,7 @@ object RepositoryModule {
 
     @Provides
     fun provideForecastDao(context: Application): ForecastDao =
-        ForecastDatabase.buildInMemoryDb(context).dao()
+        ForecastDatabase.buildDb(context).dao()
 
     @Provides
     fun provideFavoriteStorage(context: Application): DataStore<Preferences> =

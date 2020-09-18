@@ -1,7 +1,9 @@
 package com.rob.simpleweather.di
 
 import android.app.Activity
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
+import com.rob.simpleweather.main.favorites.OnFavoriteClicked
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,4 +16,11 @@ object ActivityModule {
     @Provides
     fun provideAppCompatActivity(impl: Activity) : AppCompatActivity =
         impl as AppCompatActivity
+
+    @Provides
+    fun provideLayoutInflater(activity: Activity) = LayoutInflater.from(activity)
+
+    @Provides
+    fun provideFavoriteCallbacks(impl: Activity) : OnFavoriteClicked =
+        impl as OnFavoriteClicked
 }

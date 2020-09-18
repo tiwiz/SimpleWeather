@@ -27,7 +27,7 @@
             tools:text="@tools:sample/cities" />
 
         <TextView
-            android:id="@+id/txtCountry"
+            android:id="@+id/txtCountryCity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -46,7 +46,7 @@
             android:contentDescription="@string/weather_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCountry"
+            app:layout_constraintTop_toBottomOf="@+id/txtCountryCity"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView

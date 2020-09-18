@@ -14,19 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleWeather">
+        <activity android:name=".main.FavoriteActivity" />
         <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- This is just here to prevent WorkManager from autoinit -->
+        </activity> <!-- This is just here to prevent WorkManager from autoinit -->
         <provider
             android:name="androidx.work.impl.WorkManagerInitializer"
             android:authorities="${applicationId}.workmanager-init"
-            tools:node="remove"
-            tools:ignore="ExportedContentProvider" />
+            tools:ignore="ExportedContentProvider"
+            tools:node="remove" />
     </application>
 
 </manifest>

@@ -24,6 +24,9 @@ class FavoritesViewHolder(
             binding.root.setOnClickListener {
                 callback?.onAddNewFavorite()
             }
+            binding.imgAddNewFavorite.setOnClickListener {
+                callback?.onAddNewFavorite()
+            }
         }
     }
 }

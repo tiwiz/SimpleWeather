@@ -10,7 +10,9 @@ import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class FavoritesManager @Inject constructor(private val store: DataStore<Preferences>) {
 
     private val key = preferencesKey<String>(FAVORITES_KEY)

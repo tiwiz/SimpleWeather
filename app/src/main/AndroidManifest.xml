@@ -14,6 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleWeather">
+        <activity android:name=".main.SettingsActivity"></activity>
         <activity android:name=".main.FavoriteActivity" />
         <activity android:name=".main.MainActivity">
             <intent-filter>

@@ -48,6 +48,10 @@ class LocationManager @Inject constructor(private val activity: AppCompatActivit
     @SuppressLint("MissingPermission")
     private fun emitLastKnownLocation() {
         fusedLocationClient.lastLocation
-            .addOnSuccessListener { l -> location.postValue(l) }
+            .addOnSuccessListener { l ->
+                if (l != null) {
+                    location.postValue(l)
+                }
+            }
     }
 }

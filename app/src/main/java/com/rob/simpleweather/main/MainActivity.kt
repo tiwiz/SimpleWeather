@@ -85,6 +85,10 @@ class MainActivity : AppCompatActivity(), OnFavoriteClicked {
         binding.btnUserLocation.setOnClickListener {
             loadWeatherFromUserLocation()
         }
+
+        binding.imgSettings.setOnClickListener {
+            startActivity(Intent(this, SettingsActivity::class.java))
+        }
     }
 
     private fun bindForecast(response: ForecastResponse) {

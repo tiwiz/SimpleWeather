@@ -42,11 +42,10 @@
             android:id="@+id/iconWeather"
             android:layout_width="96dp"
             android:layout_height="96dp"
-            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:contentDescription="@string/weather_icon"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgSettings"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
@@ -145,5 +144,16 @@
             app:layout_constraintStart_toEndOf="@+id/btnRefresh"
             app:layout_constraintTop_toTopOf="@+id/btnRefresh"
             app:srcCompat="@drawable/ic_my_location" />
+
+        <ImageButton
+            android:id="@+id/imgSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="?selectableItemBackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_settings" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -1,9 +1,11 @@
 package com.rob.simpleweather.di
 
 import android.app.Application
+import android.content.SharedPreferences
 import androidx.datastore.DataStore
 import androidx.datastore.preferences.Preferences
 import androidx.datastore.preferences.createDataStore
+import androidx.preference.PreferenceManager
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.rob.simpleweather.repository.ForecastDao
@@ -25,7 +27,7 @@ import retrofit2.Retrofit
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+object SingletonModule {
 
     @Provides
     fun provideHttpClient(context: Application): OkHttpClient =
@@ -65,4 +67,8 @@ object RepositoryModule {
     @Provides
     fun provideFavoriteStorage(context: Application): DataStore<Preferences> =
         context.createDataStore(name = "favorites")
+
+    @Provides
+    fun provideSharedPreferences(context: Application) : SharedPreferences =
+        PreferenceManager.getDefaultSharedPreferences(context)
 }

@@ -5,14 +5,14 @@ import androidx.work.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class WeatherUpdater @Inject constructor(app: Application){
+class WeatherUpdater @Inject constructor(app: Application) {
 
     private val constraints = Constraints.Builder()
         .setRequiredNetworkType(NetworkType.UNMETERED)
         .setRequiresDeviceIdle(true)
         .build()
 
-    private val request  =
+    private val request =
         PeriodicWorkRequestBuilder<WeatherUpdateWorker>(1, TimeUnit.HOURS)
             .setConstraints(constraints)
             .build()
@@ -22,8 +22,18 @@ class WeatherUpdater @Inject constructor(app: Application){
     }
 
     fun scheduleRecurringUpdate() {
-        workManager.enqueueUniquePeriodicWork("weatherUpdate",
+        workManager.enqueueUniquePeriodicWork(
+            WORKER_KEY,
             ExistingPeriodicWorkPolicy.KEEP,
-            request)
+            request
+        )
+    }
+
+    fun cancelRecurringUpdate() {
+        workManager.cancelUniqueWork(WORKER_KEY)
+    }
+
+    companion object {
+        private const val WORKER_KEY = "weatherUpdate"
     }
 }

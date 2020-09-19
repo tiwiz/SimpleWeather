@@ -25,7 +25,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.switchAutomaticUpdate.isActivated =
+        binding.switchAutomaticUpdate.isChecked =
             settingsManager.shouldEnableAutomaticUpdates()
 
         binding.switchAutomaticUpdate.setOnCheckedChangeListener { _, value ->

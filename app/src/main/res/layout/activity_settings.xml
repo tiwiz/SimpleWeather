@@ -7,6 +7,17 @@
     tools:context=".main.SettingsActivity">
 
     <TextView
+        android:id="@+id/txtRemoveFavorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Swipe to remove favorites"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintStart_toStartOf="@+id/txtUpdatesLabel"
+        app:layout_constraintTop_toBottomOf="@+id/switchAutomaticUpdate" />
+
+    <TextView
         android:id="@+id/txtUpdatesLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,4 +39,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/txtUpdatesLabel"
         app:layout_constraintTop_toBottomOf="@+id/txtUpdatesLabel" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/citySettingsList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtRemoveFavorites"
+        tools:listitem="@layout/city_settings_item"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

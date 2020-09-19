@@ -52,7 +52,7 @@ object RepositoryModule {
     @Provides
     fun provideApi(client: OkHttpClient, factory: Converter.Factory): WeatherApi =
         Retrofit.Builder()
-            .baseUrl("http://api.weatherapi.com/")
+            .baseUrl("https://api.weatherapi.com/")
             .client(client)
             .addConverterFactory(factory)
             .build()

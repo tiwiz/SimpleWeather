@@ -1,5 +1,6 @@
 package com.rob.simpleweather.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -44,7 +45,10 @@ class MainActivity : AppCompatActivity(), OnFavoriteClicked {
         setContentView(binding.root)
 
         wireUi()
+    }
 
+    override fun onResume() {
+        super.onResume()
         loadWeatherFromUserLocation()
         loadFavorites()
     }
@@ -123,6 +127,8 @@ class MainActivity : AppCompatActivity(), OnFavoriteClicked {
     }
 
     override fun onAddNewFavorite() {
-        //TODO open favorite screen
+        startActivity(
+            Intent(this, FavoriteActivity::class.java)
+        )
     }
 }

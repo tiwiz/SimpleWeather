@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 class FavoritesAdapter @Inject constructor(
     private val layoutInflater: LayoutInflater,
-    private val callbacks: OnFavoriteClicked
+    private val callbacks: OnFavoriteClicked?
 ) : RecyclerView.Adapter<FavoritesViewHolder>() {
 
     private val items : ArrayList<String?> = arrayListOf(null)

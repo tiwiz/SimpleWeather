@@ -16,6 +16,12 @@ In the near future, new topics will be added
 - Android testing
 - Modern UI
 - Composable UI
+- Biometric authentication
+- Login with Google
+- Login with Third Party Identity Providers
+- Login and Firebase
+- Firebase Push Notifications
+- Firebase storage
 
 ## Libraries used
 

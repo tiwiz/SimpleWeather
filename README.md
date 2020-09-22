@@ -10,7 +10,7 @@ Sample Android app based on [WeatherAPI](https://www.weatherapi.com/) request to
 - [basic ui concepts](https://github.com/tiwiz/SimpleWeather/tree/06_ui)
 - [settings, fix for location, tips for RecyclerView](https://github.com/tiwiz/SimpleWeather/tree/07_advanced_settings)
 
-In the near future, new topics will be added
+In the future, new topics might be added
 
 - Unit testing and abstraction
 - Android testing

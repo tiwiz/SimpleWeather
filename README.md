@@ -1,4 +1,4 @@
-# SimpleWeather
+# Getting started with `#AndroidDev`
 
 Sample Android app based on [WeatherAPI](https://www.weatherapi.com/) request to show a list of topics:
 

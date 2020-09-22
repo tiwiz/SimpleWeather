@@ -5,7 +5,7 @@ Sample Android app based on [WeatherAPI](https://www.weatherapi.com/) request to
 - [network requests](https://github.com/tiwiz/SimpleWeather/tree/01_network_request)
 - [offline support with DB](https://github.com/tiwiz/SimpleWeather/tree/02_offline_support_with_db)
 - [storing additional data locally](https://github.com/tiwiz/SimpleWeather/tree/03_storing_data_locally)
-- [geolocation] (https://github.com/tiwiz/SimpleWeather/tree/04_user_location)
+- [geolocation](https://github.com/tiwiz/SimpleWeather/tree/04_user_location)
 - [automatic data update](https://github.com/tiwiz/SimpleWeather/tree/05_update_data)
 - [basic ui concepts](https://github.com/tiwiz/SimpleWeather/tree/06_ui)
 - [settings, fix for location, tips for RecyclerView](https://github.com/tiwiz/SimpleWeather/tree/07_advanced_settings)
